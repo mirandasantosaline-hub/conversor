@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ConvertX - Conversor de moedas fiduciárias e criptomoedas com cotações em tempo real.">
+    <title>Converter | Conversor de Moedas em Tempo Real</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 7h13l-3-3" />
+                    <path d="M20 17H7l3 3" />
+                </svg>
+            </div>
+            <div class="brand-text">
+                <span class="brand-name">Converter</span>
+                <span class="brand-tagline">Conversões inteligentes com cotações atualizadas</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro" aria-labelledby="intro-title">
+            <h1 id="intro-title">Converta seu dinheiro</h1>
+            <p>Consulte o valor das principais moedas e criptomoedas em tempo real.</p>
+        </section>
+
+        <section class="converter" aria-labelledby="converter-title">
+            <h2 id="converter-title" class="sr-only">Conversor</h2>
+
+            <div class="field">
+                <label for="amount">Valor em Reais (BRL)</label>
+                <div class="input-wrapper">
+                    <span class="input-prefix" aria-hidden="true">R$</span>
+                    <input type="text" id="amount" name="amount" placeholder="0,00" inputmode="decimal"
+                        autocomplete="off" aria-describedby="amount-error">
+                </div>
+                <span class="field-error" id="amount-error" role="alert"></span>
+            </div>
+
+            <div class="field">
+                <label for="currency">Moeda de destino</label>
+                <div class="select-wrapper">
+                    <select id="currency" name="currency">
+                        <option value="USD">USD — Dólar americano</option>
+                        <option value="EUR">EUR — Euro</option>
+                        <option value="BTC">BTC — Bitcoin</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="result" aria-live="polite">
+                <div class="result-header">
+                    <span class="result-label">Valor convertido</span>
+                    <span class="status-badge" id="status-badge" data-state="loading">Carregando</span>
+                </div>
+                <div class="result-value" id="converted-value">—</div>
+                <div class="result-meta" id="rate-info">Aguardando cotações...</div>
+            </div>
+        </section>
+
+        <section class="rates" aria-labelledby="rates-title">
+            <div class="rates-header">
+                <h2 id="rates-title">Cotações atuais</h2>
+                <span class="rates-hint" id="rates-hint">Atualização automática a cada 60 s</span>
+            </div>
+            <div class="rates-grid" id="rates-grid">
+                <div class="rate-skeleton" aria-hidden="true"></div>
+                <div class="rate-skeleton" aria-hidden="true"></div>
+                <div class="rate-skeleton" aria-hidden="true"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p class="footer-notice">
+            As cotações exibidas são informativas e podem sofrer variações. Não constituem recomendação financeira.
+        </p>
+        <p class="footer-sources">
+            Fontes de dados:
+            <a href="https://docs.awesomeapi.com.br/api-de-moedas" target="_blank"
+                rel="noopener noreferrer">AwesomeAPI</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.coingecko.com/en/api" target="_blank" rel="noopener noreferrer">CoinGecko</a>
+        </p>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
